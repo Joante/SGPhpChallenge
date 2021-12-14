@@ -191,7 +191,7 @@ Before Instalation:
 This aplication is set to use MySql as database feel free to change it in the .env file.
 
 Instalation:
-  - Run **Git clone**
+  - Run **Git clone https://github.com/Joante/SGPhpChallenge.git**
   - Run **composer install** in the root folder.
   - Edit the **DATABASE_URL** variable in .env with your database conection.
   - Run **php bin/console doctrine:database:create**
