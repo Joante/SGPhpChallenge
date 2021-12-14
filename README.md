@@ -178,53 +178,53 @@ ABC|123,"T-Shirt",$150,"https://via.placeholder.com/400x300/4b0082?id=1","https:
 ## Installation
 
 Before Instalation: 
-	- Requirements: 
-		- Php 7.2.5 to 7.4.x
-			- Extensions for Php: 
-				- curl
-				- mbstring
-				- xml
-				- intl
-				- mysql
-				- amqp
+  - Requirements: 
+    - Php 7.2.5 to 7.4.x
+     - Extensions for Php: 
+	- curl
+	- mbstring
+	- xml
+	- intl
+	- mysql
+	- amqp
 
-		- This aplication is set to use MySql as database feel free to change it in the .env file.
+This aplication is set to use MySql as database feel free to change it in the .env file.
 
 Instalation:
-	- Run <b>Git clone</b>
-	- Run <b>composer install</b> in the root folder.
-	- Edit the DATABASE_URL variable in .env with your database conection.
-	- Run <b>php bin/console doctrine:database:create</b>
-	- Run <b>php bin/console doctrine:migrations:migrate</b>
-	- Run <b>php bin/console doctrine:fixtures:load</b>
+  - Run **Git clone**
+  - Run **composer install** in the root folder.
+  - Edit the **DATABASE_URL** variable in .env with your database conection.
+  - Run **php bin/console doctrine:database:create**
+  - Run **php bin/console doctrine:migrations:migrate**
+  - Run **php bin/console doctrine:fixtures:load**
 
 Enviromental Variables: 
-	- ftp_dir in config/services.yaml: Indicates the SFTP folder. Default: /public/catalogs/exports
-	- catalogs_dir in config/services.yaml: Indicates the import catalogs folder. Default: /public/catalogs/imports
+	- **ftp_dir** in config/services.yaml: Indicates the SFTP folder. Default: /public/catalogs/exports
+	- **catalogs_dir** in config/services.yaml: Indicates the import catalogs folder. Default: /public/catalogs/imports
 
 ## Usage
 
 Automated process:
-1- Start the server with: symfony:server:start, or create a virtual host.
-2- Start as many workers as you wish with: php bin/console messenger:consume async -vv
-3- Go to http://127.0.0.1:8000 that is the Catalog's list.
-4- Click in Add Catalog
-5- Upload the Catalog File and click in Create.
-6- The process begin after the Catalog is created.
-7- Check in the Catalog's list that the Catalog is sync
+  - Start the server with: **symfony:server:start**, or create a virtual host.
+  - Start as many workers as you wish with: **php bin/console messenger:consume async -vv**
+  - Go to http://127.0.0.1:8000 that is the Catalog's list.
+  - Click in Add Catalog
+  - Upload the Catalog File and click in Create.
+  - The process begin after the Catalog is created.
+  - Check in the Catalog's list that the Catalog is sync
 
 Also the process can be done manually by doing:
-1- Start the server with: symfony:server:start, or create a virtual host.
-3- Go to http://127.0.0.1:8000 that is the Catalog's list.
-4- Click in Add Catalog
-5- Upload the Catalog File and click in Create.
-6- Check the name of the file created in public/catalogs/imports/.
-7- Run the command: php bin/console app:products:import FILENAME If the filename it's not especified the command search all the catalogs with submitted state and process all.
-7- Run the command: php bin/console app:products:export
+  - Start the server with: **symfony:server:start**, or create a virtual host.
+  - Go to http://127.0.0.1:8000 that is the Catalog's list.
+  - Click in Add Catalog
+  - Upload the Catalog File and click in Create.
+  - Check the name of the file created in public/catalogs/imports/.
+  - Run the command: **php bin/console app:products:import FILENAME** If the filename it's not especified the command search all the catalogs with submitted state and process all.
+  - Run the command: **php bin/console app:products:export**
 
 
 ## Testing
 
 For testing the Messenger must be running.
-1- Start messenger with: php bin/console messenger:consume async -vv
-2- Run php vendor/bin/phpunit
+  - Start messenger with: **php bin/console messenger:consume async -vv**
+  - Run **php vendor/bin/phpunit**
